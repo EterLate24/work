@@ -4,7 +4,7 @@ const exphbs = require('express-handlebars')
 const routes = require('./routes/mainRouter')
 const path = require('path')
 const { use } = require('express/lib/router')
-
+const cookieParser = require('cookie-parser')
 
 const PORT =  2000
 
@@ -14,7 +14,7 @@ const hbs = exphbs.create({
     extname:'hbs'
 })
 
-
+app.use(cookieParser())
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views')

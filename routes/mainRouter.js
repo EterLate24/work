@@ -19,17 +19,6 @@ router.get('/', async (req, res) => {
     })
 })
 
-// Admin panel
-
-router.get('/admin', async (req, res) => {
-
-    res.render('index', {
-        title: 'Панель администратора',
-        home: true
-    })
-})
-
-
 //-----------------------Auth
 //Registration
 router.post('/registration', [
@@ -58,7 +47,27 @@ router.get('/enter', (req, res) => {
 //Logout
 router.get('/out', (req, res) => {
     res.clearCookie('UserHash')
+    res.clearCookie('UserData')
     res.redirect('/enter')
 })
+
+//-----------------------admin panel and cab
+// Admin panel
+router.get('/admin_panel', roleMiddleware(['ADMIN']), async (req, res) => {
+    res.render('admin_panel', {
+        title: 'Панель администратора',
+    })
+})
+
+//Cab
+router.get('/cab', authMiddleware, async (req, res) => {
+    const { cookies } = req
+    // const phone = JSON.parse(cookies.UserData).phone_number
+    // const massiv = await applications.find({ phone_number: phone }).lean()
+    res.render('cab', {
+        title: 'Личный кабинет'
+    })
+})
+
 
 module.exports = router

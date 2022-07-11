@@ -1,0 +1,35 @@
+<h1>Личный кабинет</h1>
+
+{{#if massiv.length}}
+<div>
+    <h2>Ваши заявки:</h2>
+    <table>
+        <tr>
+            <th>Номер телефона</th>
+            <th>Брэнд</th>
+            <th>Модель</th>
+            <th>Вид поломки</th>
+            <th>Дата создания</th>
+            <th>Дата визита</th>
+            <th>Комментарий клиента</th>
+            <th>Работник</th>
+            <th>Статус заявки</th>
+        </tr>
+        {{#each massiv}}
+        <tr>
+            <td>{{phone_number}}</td>
+            <td>{{brand}}</td>
+            <td>{{model}}</td>
+            <td>{{defect}}</td>
+            <td>{{date_create}}</td>
+            <td>{{date_visit}}</td>
+            <td>{{comment}}</td>
+            <td>{{worker}}</td>
+            <td>{{status}}</td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+{{else}}
+<h3>НЕТ ЗАЯВОК</h3>
+{{/if}}

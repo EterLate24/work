@@ -25,7 +25,7 @@ class authController {
                 return res.status(400).json({ message: 'Пользователь с таким именем уже существует' })
             }
             const hashPassword = bcrypt.hashSync(password, 7)
-            const userRole = await Role.findOne({ value: 'ADMIN' })
+            const userRole = await Role.findOne({ value: 'USER' })
             const user = new User({ username, password: hashPassword, roles: [userRole.value] })
             await user.save()
             return res.json({ message: 'Пользователь зарегистрирован' })
@@ -47,11 +47,10 @@ class authController {
             }
             const token = generateAccessToken(user._id, user.roles)
             res.cookie('UserHash', token)
-            // res.cookie('UserData', JSON.stringify({
-            //     phone_number: user.phone_number,
-            //     username: user.username,
-            //     fio: user.fio
-            // }))
+            res.cookie('UserData', JSON.stringify({
+                username: user.username,
+                id: user._id
+            }))
             
             res.redirect('/')
 
