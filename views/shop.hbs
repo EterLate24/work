@@ -1,13 +1,13 @@
 {{#if massiv.length}}
 <div>
-    <h2>Магазин</h2>
+    <h2>Shop</h2>
     <table>
         <tr>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Цена</th>
-            <th>Тип товара</th>
-            <th>Купить</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Buy</th>
         </tr>
         {{#each massiv}}
         <form id={{_id}}>
@@ -27,5 +27,5 @@
     </table>
 </div>
 {{else}}
-<h3>Нет товаров</h3>
+<h3>No items</h3>
 {{/if}}

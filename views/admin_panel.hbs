@@ -1,17 +1,17 @@
-<h1>Панель администратора</h1>
-<a href="/create_item">Создать предмет</a>
+<h1>Admin panel</h1>
+<a href="/create_item">Create item</a>
 {{#if massiv.length}}
 <div>
-    <h2>Все товары</h2>
+    <h2>All items</h2>
     <table>
         <tr>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Цена</th>
-            <th>Видимость</th>
-            <th>Тип товара</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Enabled</th>
+            <th>Type</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         {{#each massiv}}
         <form id={{_id}}>
@@ -41,5 +41,5 @@
     </table>
 </div>
 {{else}}
-<h3>Нет товаров</h3>
+<h3>No items</h3>
 {{/if}}

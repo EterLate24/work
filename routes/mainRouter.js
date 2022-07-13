@@ -60,7 +60,7 @@ router.get('/out', (req, res) => {
 router.get('/admin_panel', roleMiddleware(['ADMIN']), async (req, res) => {
     const massiv = await item.find().lean()
     res.render('admin_panel', {
-        title: 'Панель администратора',
+        title: 'Admin panel',
         massiv
     })
 })
@@ -78,7 +78,7 @@ router.get('/cab', authMiddleware, async (req, res) => {
         all_items.push(Object.assign(item_info[0], {date: purchase_info[i].date}))
     }
     res.render('cab', {
-        title: 'Личный кабинет',
+        title: 'Cab',
         all_items,
 
     })
@@ -100,7 +100,7 @@ router.post('/edit_item', (req, res) => {
         price,
         enabled,
         type,
-        title: 'Редактировать'
+        title: 'Editing'
     })
 })
 
@@ -126,7 +126,7 @@ router.get('/delete_item', async (req, res) => {
 //Creating item page
 router.get('/create_item', (req, res) => {
         res.render('create_item', {
-            title: 'Создание предмета'
+            title: 'Creating item'
         })
 })
 
@@ -148,9 +148,10 @@ router.post('/send_item', async (req, res) => {
 //Shop page
 router.get('/shop', async (req,res) => {
     const massiv = await item.find({enabled: true}).lean()
+
     res.render('shop',{
-        title: 'Магазин',
-        massiv
+        title: 'Shop',
+        massiv,
     })
 })
 

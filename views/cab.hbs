@@ -1,15 +1,15 @@
-<h1>Личный кабинет</h1>
+<h1>Cab</h1>
 
 {{#if all_items.length}}
 <div>
-    <h2>Купленные товары</h2>
+    <h2>Purchased items</h2>
     <table>
         <tr>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Цена</th>
-            <th>Тип товара</th>
-            <th>Дата покупки</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>Date</th>
         </tr>
         {{#each all_items}}
         <tr>
@@ -23,5 +23,5 @@
     </table>
 </div>
 {{else}}
-<h3>Нет товаров</h3>
+<h3>No items</h3>
 {{/if}}
