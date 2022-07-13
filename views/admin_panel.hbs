@@ -1,1 +1,45 @@
 <h1>Панель администратора</h1>
+<a href="/create_item">Создать предмет</a>
+{{#if massiv.length}}
+<div>
+    <h2>Все товары</h2>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Цена</th>
+            <th>Видимость</th>
+            <th>Тип товара</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>
+        {{#each massiv}}
+        <form id={{_id}}>
+        <tr>
+            <td>{{name}}</td>
+            <td>{{description}}</td>
+            <td>{{price}}</td>
+            <td>{{enabled}}</td>
+            <td>{{type}}</td>
+            <td>
+                <input type="submit" form={{_id}} formaction="/edit_item" formmethod="post">
+            </td>
+            <td>
+                <input type="submit" form={{_id}} formaction="/delete_item" formmethod="get">
+            </td>
+
+        <input type="hidden" name="_id" value="{{_id}}"></input>
+        <input type="hidden" name="name" value="{{name}}"></input>
+        <input type="hidden" name="description" value="{{description}}"></input>
+        <input type="hidden" name="price" value="{{price}}"></input>
+        <input type="hidden" name="enabled" value="{{enabled}}"></input>
+        <input type="hidden" name="type" value="{{type}}"></input>
+
+        </tr>
+        </form>
+        {{/each}}
+    </table>
+</div>
+{{else}}
+<h3>Нет товаров</h3>
+{{/if}}

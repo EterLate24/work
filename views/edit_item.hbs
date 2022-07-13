@@ -1,0 +1,21 @@
+<h1>Редактировать предмет c ID:{{_id}}</h1>
+<form id="save" class="edit" action="/save_item" method="post">
+            <input name="_id" type="hidden" value="{{_id}}">
+
+            <label for="Name">Название</label>
+            <input type="text" name="Name" value="{{Name}}">
+
+            <label for="description">Описание</label>
+            <input type="text" name="description" value="{{description}}">
+
+            <label for="price">Цена</label>
+            <input type="text" name="price" value="{{price}}">
+
+            <label for="enabled">Видимость</label>
+            <input type="text" name="enabled" value="{{enabled}}">
+ 
+            <label for="type">Тип товара</label>
+            <input type="text" name="type" value="{{type}}">
+</form>
+
+<button  form="save" type="submit">Сохранить</button>

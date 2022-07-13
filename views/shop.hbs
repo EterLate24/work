@@ -1,24 +1,28 @@
-<h1>Личный кабинет</h1>
-
-{{#if all_items.length}}
+{{#if massiv.length}}
 <div>
-    <h2>Купленные товары</h2>
+    <h2>Магазин</h2>
     <table>
         <tr>
             <th>Название</th>
             <th>Описание</th>
             <th>Цена</th>
             <th>Тип товара</th>
-            <th>Дата покупки</th>
+            <th>Купить</th>
         </tr>
-        {{#each all_items}}
+        {{#each massiv}}
+        <form id={{_id}}>
         <tr>
             <td>{{name}}</td>
             <td>{{description}}</td>
             <td>{{price}}</td>
             <td>{{type}}</td>
-            <td>{{date}}</td>
+            <td>
+                <input type="submit" form={{_id}} formaction="/buy" formmethod="get">
+            </td>
+            <input type="hidden" name="_id" value="{{_id}}"></input>
+            <input type="hidden" name="price" value="{{price}}"></input>
         </tr>
+        </form>
         {{/each}}
     </table>
 </div>

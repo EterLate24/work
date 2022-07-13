@@ -10,10 +10,12 @@ const user = new Schema({
         type: String,
         required:true
     },
+    balance:{
+        type: Number
+    },
     roles:[{
         type: String,
         ref: 'role'
-
     }],
 })
 
